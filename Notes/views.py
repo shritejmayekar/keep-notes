@@ -13,7 +13,7 @@ class NoteFilterSet(django_filters.FilterSet):
 
     class Meta:
         model = Notes
-        fields = ['is_pinned', 'is_deleted']
+        fields = ['is_pinned', 'is_deleted','is_archieved','title','description']
 
 
 class NoteViewset(viewsets.ModelViewSet):

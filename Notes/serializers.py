@@ -8,9 +8,6 @@ class NoteSerializer(serializers.ModelSerializer):
         exclude = ('user',)
 
     def create(self, validated_data):
-        note = Notes.objects.create(
-            title=validated_data['title'],
-            description=validated_data['description'],
-            user=self.context['request'].user
-        )
+        validated_data['user']=self.context['request'].user
+        note = Notes.objects.create(**validated_data)
         return note

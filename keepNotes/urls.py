@@ -19,5 +19,6 @@ from django.conf.urls import include
 from keepNotesAuth.views import login
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/auth/',include('keepNotesAuth.urls'))
+    path('api/auth/',include('keepNotesAuth.urls')),
+    path('api/',include('notes.urls'))
 ]

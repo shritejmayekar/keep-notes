@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from notes.models import Notes
+from Notes.models import Notes
 from rest_framework import viewsets
-from notes.serializers import NoteSerializer
+from Notes.serializers import NoteSerializer
 from rest_framework.response import Response
 import django_filters
 from django_filters.widgets import BooleanWidget

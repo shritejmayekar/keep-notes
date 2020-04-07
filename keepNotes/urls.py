@@ -20,5 +20,5 @@ from keepNotesAuth.views import login
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/',include('keepNotesAuth.urls')),
-    path('api/',include('notes.urls'))
+    path('api/',include('Notes.urls'))
 ]

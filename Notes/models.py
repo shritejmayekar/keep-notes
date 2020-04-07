@@ -11,6 +11,7 @@ class Notes(models.Model):
     is_archieved = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
     sort_order = models.IntegerField(default=99)
+    color = models.CharField(max_length=255,null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

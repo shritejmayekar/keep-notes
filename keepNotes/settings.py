@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 from dotenv import find_dotenv, load_dotenv
 import dj_database_url
+from datetime import timedelta
 
 
 dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
@@ -63,6 +64,7 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
@@ -70,6 +72,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated', ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 15
+}
+
+JWT_AUTH = { 
+    'JWT_AUTH_HEADER_PREFIX': 'Bearer',
+    'JWT_EXPIRATION_DELTA': timedelta(days=30)
 }
 
 ROOT_URLCONF = 'keepNotes.urls'
